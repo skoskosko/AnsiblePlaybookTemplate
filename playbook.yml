@@ -1,0 +1,29 @@
+---
+
+- name:                  Template playbook local
+  hosts:                 "{{ variable_host | default('local') }}"
+  # Gather facts pings all machines. (default true) 
+  gather_facts:          false 
+  vars:
+    my_variable:         "{{ my_runtime_var }}"
+    my_variable2:        "{{ my_group_var }}"
+  tasks:
+  - name:                test connection
+    ping:
+
+  - debug:             var=my_variable
+  - debug:             var=my_variable2
+
+  - name:                loop trough users home directory
+    find:
+      paths:             ~/
+      recurse:           no
+      file_type:         any
+    register:            my_items
+
+  - name:                Add my files to array
+    set_fact:
+      my_files:       "['{{item.path}}']"
+    with_items:          "{{ my_items.files }}"
+    loop_control:
+      label:             "{{ item.path }}"

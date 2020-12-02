@@ -1,0 +1,6 @@
+[local]
+192.168.0.3       ansible_user=esko             ansible_ssh_private_key_file=/ansible/playbooks/id_rsa
+
+
+[remote]
+192.168.0.100       ansible_user=skosko             ansible_ssh_private_key_file=/ansible/playbooks/id_rsa
