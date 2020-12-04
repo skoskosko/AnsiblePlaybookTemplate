@@ -72,6 +72,11 @@ sudo apt install ansible
 
 ```
 
+## Links
+
+[Ansible plabook keywords](https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html)
+[Ansible module index](https://docs.ansible.com/ansible/2.7/modules/modules_by_category.html)
+
 ## Things to consider
 
 This only gives an template for very basic usage of ansible. 
